@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>{% block title %}Alok'Immo{% endblock %}</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a href="#" ><img src="{{ asset('img/LogoAgence.jpg') }}" alt="icon AlokImmo"></a>
+        <a href="#"><h1> AlokImmo</h1></a>
+        {% include 'inc/nav.html.twig' %}
+    </header>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <main>
+        {% block body %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div>&copy; {{ "now"|date('Y') }} AlokImmo ! </div>
+    </footer>
+</div>
+</body>
+</html>
